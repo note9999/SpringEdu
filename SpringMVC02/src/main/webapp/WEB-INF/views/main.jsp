@@ -40,15 +40,62 @@
  			$.each(data,function(index,obj){ // obj={"idx":5,"title:","게시판"~~}
  				 listHtml+="<tr>";
  	 			 listHtml+="<td>"+ obj.idx +"</td>";
- 	 			 listHtml+="<td>"+ obj.title +"</td>";
+ 	 			 listHtml+="<td><a href='javascript:goContent("+obj.idx+")'>"+obj.title+"</a></td>";
  	 			 listHtml+="<td>"+ obj.writer +"</td>";
  	 			 listHtml+="<td>"+ obj.indate +"</td>";
- 	 			 listHtml+="<td>"+ obj.count+ "</td>";
+ 	 			 listHtml+="<td>" + obj.count+ "</td>";
+ 	 			 listHtml+="</tr>";
+ 	 			 
+ 	 			 listHtml+="<tr id='c"+obj.idx+"' style='display:none'>";
+ 	 			 listHtml+="<td>내용</td>";
+ 	 			 listHtml+="<td colspan='4'>";
+ 	 		     listHtml+="<textarea rows='7' class='form-control'>"+ obj.content+"</textarea>";
+ 	 			 listHtml+="</td>";
  	 			 listHtml+="</tr>";
  			});
-			 listHtml+="</table>";
-				$("#view").html(listHtml);
+ 			listHtml+="<tr>";
+ 			listHtml+="<td colspan='5'>";
+ 			listHtml+="<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
+ 			listHtml+="</td>";
+			listHtml+="</tr>";
+			listHtml+="</table>";
+			$("#view").html(listHtml);
+			
+			$("#view").css("display","block")
+			$("#wform").css("display","none")
  		}
+ 		function goForm(){
+ 			$("#view").css("display","none") //감추고
+ 			$("#wform").css("display","block")	//보이고
+ 		}
+ 		function goList(){
+ 			$("#view").css("display","block") //감추고
+ 			$("#wform").css("display","none")	//보이고
+ 		}
+ 		function goInsert(){
+ 			//var title=$(#"title").val();
+ 			//var writer=$(#"writer").val();
+ 			//var content=$(#"content").val();
+ 			
+ 			var fData=$("#frm").serialize();
+ 			$.ajax({
+ 				url: "boardInsert.do",
+ 				type: "post",
+ 				data: fData,
+ 				success : loadList,
+ 				error: function() { alert("error");}
+ 			
+ 			});
+ 			//폼 초기화
+ 			//$("#title").val("");
+ 			//$("#content").val("");
+ 			//$("#writer").val("");
+ 			$("#fclear").trigger("click");
+ 		}
+ 		function goContent(idx) {
+ 			$("#c"+idx).css("display","table-row");
+ 		}
+ 		
  </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -59,6 +106,34 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">BOARD</div>
 			<div class="panel-body" id="view">Panel Content</div>
+			<div class="panel-body" id="wform" style="display:none">
+		<form id="frm">
+            <table class="table">
+                  <tr>
+                     <td>제목</td>
+                     <td><input type="text" id="title" name="title" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                     <td>내용</td>
+                     <td><textarea rows="7" id="content" class="form-control" name="content"></textarea></td>
+                  </tr>
+                 
+                  <tr>
+                     <td>작성자</td>
+                     <td><textarea type="text" id="writer" name="writer" class="form-control"></textarea></td>
+                  </tr>
+                 
+                  <tr>
+                     <td colspan="2" align="center">
+                        <button type="button" class="btn btn-success btn-sm" onclick="goInsert()">등록</button>
+                        <button type="reset" class="btn btn-warning btn-sm" id="fclear">취소</button>
+                        <button type="button" class="btn btn-info btn-sm" onclick="goList()">리스트</button>
+                     </td>
+                  </tr>
+               
+               </table>
+       </form>
+			</div>
 			<div class="panel-footer">티모</div>
 
 		</div>
