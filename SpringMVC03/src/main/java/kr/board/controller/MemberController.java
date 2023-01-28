@@ -72,4 +72,10 @@ public class MemberController {
 				return "redirect:/memJoin.do";
 		}
 	}
+		//로그아웃 처리
+	@RequestMapping ("/memLogout.do")
+	public String memLogout(HttpSession session) {
+	session.invalidate();
+	return "redirect:/";
+ }
 }
