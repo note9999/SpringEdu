@@ -78,4 +78,9 @@ public class MemberController {
 	session.invalidate();
 	return "redirect:/";
  }
+	// 로그인화면
+  @RequestMapping ("/memLoginForm.do")
+  public String memLoginForm() {
+	return "member/memLoginForm"; // memLoginForm.jsp
+ }
 }
