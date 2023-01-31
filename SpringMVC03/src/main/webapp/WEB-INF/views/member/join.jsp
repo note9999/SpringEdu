@@ -173,7 +173,7 @@
       
         </div>
       </div>
-    <div class="panel-footer">G.W S/P NO.1</div>
+    <div class="panel-footer">다리우스</div>
   </div>
 </div>
 

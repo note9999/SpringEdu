@@ -31,8 +31,39 @@ $(document).ready(function(){
   <c:if test="${!empty mvo}">
   <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
   </c:if>
-  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+   <div class="panel panel-default">
+    <div>
+		<img src="${contextPath}/resources/images/main.jpg" style="width: 100%; height: 600px"/> 
+	</div>
+    <div class="panel-body">
+    <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+    <li><a data-toggle="pill" href="#menu1">게시판</a></li>
+    <li><a data-toggle="pill" href="#menu2">공지사항</a></li>
+    <li><a data-toggle="pill" href="#menu3">아직</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>게시판</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>공지사항</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>아직</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+    </div>
+    <div class="panel-footer">티모</div>
+  </div>
 </div>
 <!-- 성공 메세지를 출력(modal) -->
 			<div id="myMessage" class="modal fade" role="dialog">
