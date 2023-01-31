@@ -23,6 +23,7 @@ $(document).ready(function(){
 		$("#myMessage").modal("show");
 	}
 });
+	//중복 처리 체크 함수 
 	function registerCheck() {
 		var memID = $("#memID").val();
 		$.ajax({
@@ -47,17 +48,16 @@ $(document).ready(function(){
 			}
 		});
 	}
-	function passwordCheck(){
-		var memPassword1=$("#memPassword1").val();	
-		var memPassword2=$("#memPassword2").val();
-		if(memPassword1 != memPassword2){
-			$("#passMessage").html("비밀번호가 서로 일치하지 않습니다.");
-		}else{
-			$("#passMessage").html("");
-			$("memPassword").val(memPassword1)
-		
-		}
-	}
+    function passwordCheck() {
+        var memPassword1 =  $("#memPassword1").val();
+        var memPassword2 =  $("#memPassword2").val();
+        if(memPassword1 != memPassword2) {
+           $("#passMessage").html("비밀번호가 서로 일치하지 않습니다.");
+        } else {
+           $("#passMessage").html("");
+           $("#memPassword").val(memPassword1);
+        }
+     }
 	
     //나이 입력 안했을시 오류
     function goInsert() {
