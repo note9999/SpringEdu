@@ -26,10 +26,10 @@ $(document).ready(function(){
 <div class="container">
 <jsp:include page="common/header.jsp"/>
   <c:if test="${empty mvo}">
-  <h3>Spring MVC03</h3>
+  <h3><strong>뚱이네</strong></h3>
   </c:if>
   <c:if test="${!empty mvo}">
-  <h3>[사진]${mvo.memName}님 방문을 환영합니다.</h3>
+  <h3><strong>${mvo.memName}</strong>님 방문을 환영합니다.</h3>
   </c:if>
    <div class="panel panel-default">
     <div>
@@ -40,7 +40,7 @@ $(document).ready(function(){
     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
     <li><a data-toggle="pill" href="#menu1">게시판</a></li>
     <li><a data-toggle="pill" href="#menu2">공지사항</a></li>
-    <li><a data-toggle="pill" href="#menu3">아직</a></li>
+    <li><a data-toggle="pill" href="#menu3">뚱이</a></li>
   </ul>
   
   <div class="tab-content">
@@ -62,7 +62,7 @@ $(document).ready(function(){
     </div>
   </div>
     </div>
-    <div class="panel-footer">티모</div>
+    <div class="panel-footer">뚱이</div>
   </div>
 </div>
 <!-- 성공 메세지를 출력(modal) -->

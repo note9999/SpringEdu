@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Spring MVC03</title>
+  <title>뚱이네</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -200,7 +200,7 @@
                </table>
     	</form>
     </div>
-    <div class="panel-footer">인프런_스프1탄_지우든</div>
+    <div class="panel-footer">뚱이</div>
   </div>
 </div>
 

@@ -2,6 +2,7 @@ package kr.board.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.support.SmartTransactionObject;
@@ -145,7 +146,12 @@ public class MemberController {
 				rttr.addFlashAttribute("msgType","성공 메세지");
 				rttr.addFlashAttribute("msg","회원정보 수정에 실패했습니다.");
 				return "redirect:/memUpdateForm.do";
+			}
 		}
+	// 회원의 사진등록 화면
+	@RequestMapping("/memImageForm.do")
+	public String memImageForm() {
+		return "member/memImageForm"; // memImageForm.jsp
 	}
   }
   	

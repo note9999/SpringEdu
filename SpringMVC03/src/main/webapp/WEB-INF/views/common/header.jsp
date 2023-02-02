@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="${contextPath}/">티모</a>
+      <a class="navbar-brand" href="${contextPath}/">뚱이</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
       <c:if test="${empty mvo}">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">접속하기<span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">로그인하기<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="${contextPath}/memLoginForm.do">로그인</a></li>
             <li><a href="${contextPath}/memJoin.do">회원가입</a></li>
@@ -36,7 +36,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">회원관리<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="${contextPath}/memUpdateForm.do">회원정보수정</a></li>
-            <li><a href="#">프로필수정</a></li>
+            <li><a href="${contextPath}/memImageForm.do">프로필수정</a></li>
             <li><a href="${contextPath}/memLogout.do">로그아웃</a></li>
           </ul>
         </li>
