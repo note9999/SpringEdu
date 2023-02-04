@@ -25,21 +25,7 @@ $(document).ready(function(){
 
 <div class="container">
 <jsp:include page="common/header.jsp"/>
-  <c:if test="${empty mvo}">
-  <h3><strong>뚱이네</strong></h3>
-  </c:if>
   
-  <c:if test="${!empty mvo}">
-  
-            <c:if test="${mvo.memProfile eq null }">
-               <img src="${contextPath}/resources/images/person.jpg" style="width: 50px"; height="50px"/>
-            </c:if>
-            <c:if test="${mvo.memProfile ne null }">
-               <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px"; height="50px"/>
-            </c:if>
-            <label><strong>${mvo.memName}님 방문을 환영합니다.</strong></label>
- 
-  </c:if>
    <div class="panel panel-default">
     <div>
       <img src="${contextPath}/resources/images/dog4.jpg" style="width: 100%; height: 600px"/> 
@@ -71,7 +57,7 @@ $(document).ready(function(){
     </div>
   </div>
     </div>
-    <div class="panel-footer">뚱이</div>
+    <div class="panel-footer">뚱이네</div>
   </div>
 </div>
 <!-- 성공 메세지를 출력(modal) -->
