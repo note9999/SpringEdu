@@ -14,10 +14,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
 $(document).ready(function(){
-	if(${!empty msgType}){
-		$("#messageType").attr("class", "modal-content panel-success")
-		$("#myMessage").modal("show");
-	}
+   if(${!empty msgType}){
+      $("#messageType").attr("class", "modal-content panel-success")
+      $("#myMessage").modal("show");
+   }
 });
  </script>
 </head>
@@ -28,13 +28,22 @@ $(document).ready(function(){
   <c:if test="${empty mvo}">
   <h3><strong>뚱이네</strong></h3>
   </c:if>
+  
   <c:if test="${!empty mvo}">
-  <h3><strong>${mvo.memName}</strong>님 방문을 환영합니다.</h3>
+  
+            <c:if test="${mvo.memProfile eq null }">
+               <img src="${contextPath}/resources/images/person.jpg" style="width: 50px"; height="50px"/>
+            </c:if>
+            <c:if test="${mvo.memProfile ne null }">
+               <img src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px"; height="50px"/>
+            </c:if>
+            <label><strong>${mvo.memName}님 방문을 환영합니다.</strong></label>
+ 
   </c:if>
    <div class="panel panel-default">
     <div>
-		<img src="${contextPath}/resources/images/main.jpg" style="width: 100%; height: 600px"/> 
-	</div>
+      <img src="${contextPath}/resources/images/dog4.jpg" style="width: 100%; height: 600px"/> 
+   </div>
     <div class="panel-body">
     <ul class="nav nav-pills">
     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
@@ -43,7 +52,7 @@ $(document).ready(function(){
     <li><a data-toggle="pill" href="#menu3">뚱이</a></li>
   </ul>
   
-  <div class="tab-content">
+  <div class="tab-content">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
     <div id="home" class="tab-pane fade in active">
       <h3>HOME</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -66,24 +75,24 @@ $(document).ready(function(){
   </div>
 </div>
 <!-- 성공 메세지를 출력(modal) -->
-			<div id="myMessage" class="modal fade" role="dialog">
-				<div class="modal-dialog">
+         <div id="myMessage" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-					<!-- Modal content-->
-					<div id="messageType" class="modal-content panel-info">
-						<div class="modal-header panel-heading">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">${msgType}</h4>
-						</div>
-						<div class="modal-body">
-							<p>${msg}</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
+               <!-- Modal content-->
+               <div id="messageType" class="modal-content panel-info">
+                  <div class="modal-header panel-heading">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">${msgType}</h4>
+                  </div>
+                  <div class="modal-body">
+                     <p>${msg}</p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
 </body>
 </html>
