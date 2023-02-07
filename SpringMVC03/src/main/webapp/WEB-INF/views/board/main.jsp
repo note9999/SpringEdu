@@ -48,25 +48,35 @@
             listHtml+="<td>내용</td>";
             listHtml+="<td colspan='4'>";
             listHtml+="<textarea id='ta"+ obj.idx +"' readonly rows='7' class='form-control'></textarea>";
+           	if("${mvo.memID}"==obj.memID){
             listHtml+="<br/>";
             listHtml+="<span id='ub"+obj.idx+"'><button class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정화면</button></span>&nbsp";
             listHtml+="<button class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";
+           	}else{
+           	 listHtml+="<br/>";
+             listHtml+="<span id='ub"+obj.idx+"'><button disabled class='btn btn-success btn-sm' onclick='goUpdateForm("+obj.idx+")'>수정화면</button></span>&nbsp";
+             listHtml+="<button disabled class='btn btn-warning btn-sm' onclick='goDelete("+obj.idx+")'>삭제</button>";	
+           	}
             listHtml+="</td>";
             listHtml+="</tr>";
             
        });
+       //로그인을 해야 보이는 부분
+       if(${!empty mvo}){
         listHtml+="<tr>";
-    	listHtml+="<td colspan='5'>";
-    	listHtml+="<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
-    	listHtml+="</td>";
-    	listHtml+="</tr>";
-        listHtml+="</table>";
+       listHtml+="<td colspan='5'>";
+       listHtml+="<button class='btn btn-primary btn-sm' onclick='goForm()'>글쓰기</button>";
+       listHtml+="</td>";
+       listHtml+="</tr>";
+       }
+    	
+       listHtml+="</table>";
          $("#view").html(listHtml);
 
       	$("#view").css("display", "block");
  		$("#wform").css("display", "none");
-		
-	}
+  	}
+	
   	
   	function goForm() {
 		$("#view").css("display", "none");
@@ -168,12 +178,13 @@
 
 <div class="container">
 <jsp:include page="../common/header.jsp"/>
-  <h2>Spring MVC03</h2>
+  <h2>회원게시판</h2>
   <div class="panel panel-default">
     <div class="panel-heading">BOARD</div>
     <div class="panel-body" id="view">Panel Content</div>
     <div class="panel-body" id="wform" style="display: none">
     	<form id="frm">
+    	<input type="hidden" name="memID" id="memID" value="${mvo.memID}"/>
 	    	   <table class="table">
                   <tr>
                      <td>제목</td>
@@ -187,7 +198,7 @@
                   
                   <tr>
                      <td>작성자</td>
-                     <td><input type="text"  id="writer" name="writer" class="form-control"/></td>
+                     <td><input type="text"  id="writer" name="writer" class="form-control" value="${mvo.memName}" readonly /></td>
                   </tr>
                   
                   <tr>
