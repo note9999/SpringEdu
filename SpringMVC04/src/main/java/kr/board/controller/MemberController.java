@@ -133,12 +133,21 @@ public class MemberController {
 			//누락메세지를 가지고 가기 => 객체바인딩 (Model, HttpServleRequest, HttpSession)
 			rttr.addFlashAttribute("msgType","실패 메세지");
 			rttr.addFlashAttribute("msg","모든 내용을 입력하세요.");
+<<<<<<< HEAD
 			return "redirect:/memUpdateForm.do"; //${msgType},${msg} 로도 가능 (EL)
 		}
 			if(!memPassword1.equals(memPassword2)) {
 				rttr.addFlashAttribute("msgType","실패 메세지");
 				rttr.addFlashAttribute("msg","비밀번호가 서로 다릅니다.");
 				return "redirect:/memUpdateForm.do"; //${msgType},${msg} 
+=======
+			return "redirect://memUpdateForm.do"; //${msgType},${msg} 로도 가능 (EL)
+		}
+			if(!memPassword1.equals(memPassword2)) {
+				rttr.addFlashAttribute("msgType","실패 메세지");
+				rttr.addFlashAttribute("msg","비밀번호가 서로 다릅니다.");
+				return "redirect://memUpdateForm.do"; //${msgType},${msg} 
+>>>>>>> refs/remotes/origin/main
 			}
 			//회원정보수정 후 저장하기
 			int result=memberMapper.memUpdate(m);

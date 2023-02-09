@@ -29,6 +29,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">회원사진등록양식</div>
     <div class="panel-body">
+<<<<<<< HEAD
        <form method="post" action="${contextPath}/memImageUpdate.do?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
        <input type="hidden" name="memID" value="${mvo.memID}"/>
           <table class="table table-bordered" style="text-align: center; border: 1px solic #dddddd;">
@@ -53,6 +54,31 @@
              </tr>
           </table>
           
+=======
+       <form method="post" action="${contextPath}/memImageUpdate.do" enctype="multipart/form-data">
+       <input type="hidden" name="memID" value="${mvo.memID}"/>
+          <table class="table table-bordered" style="text-align: center; border: 1px solic #dddddd;">
+             <tr>
+                <td style="width: 110px; vertical-align: middle;">아이디</td>
+                <td>${mvo.memID}</td>
+             </tr>
+             <tr>
+                <td style="width: 110px; vertical-align: middle;">비밀번호</td>
+                <td colspan="2">
+                   <span class="btn btn-default">
+                      이미지를 업로드하세요.
+                      <input type="file" name="memProfile">
+                   </span>
+                </td>
+             </tr>
+             
+             <tr>
+             <td colspan="2" style="text-align: left;">
+                <input type="submit" class="btn btn-primary btn-sm pull-right" style="width: 100%" value="등록"/>
+             </td>
+             </tr>
+          </table>
+>>>>>>> refs/remotes/origin/main
        </form>
     </div>
     <!-- 실패 메시지 출력 -->

@@ -112,7 +112,10 @@
              </td>
              </tr>
           </table>
+<<<<<<< HEAD
               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+=======
+>>>>>>> refs/remotes/origin/main
        </form>
     
       </div>
