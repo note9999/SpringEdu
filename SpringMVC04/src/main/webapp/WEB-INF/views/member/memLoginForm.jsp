@@ -48,6 +48,7 @@
 						</tr>
 					
 					</table>
+					   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				</form>
           </div>
    <!-- 실패메세지 -->
