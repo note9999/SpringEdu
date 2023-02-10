@@ -14,18 +14,16 @@ import org.springframework.core.env.Environment;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-//root-context.xml대신 java 형식으로
-
 @Configuration
 @MapperScan(basePackages = {"kr.board.mapper"})
 @PropertySource({"classpath:persistence-mysql.properties"})
 public class RootConfig {
-   
+     
    @Autowired
    private Environment env;
    
    @Bean
-      public DataSource myDataSource() {
+   public DataSource myDataSource() {
       HikariConfig hikariConfig=new HikariConfig();
       hikariConfig.setDriverClassName(env.getProperty("jdbc.driver"));
       hikariConfig.setJdbcUrl(env.getProperty("jdbc.url"));
@@ -35,12 +33,11 @@ public class RootConfig {
       HikariDataSource myDataSource=new HikariDataSource(hikariConfig);
       return myDataSource;
    }
-   
    @Bean
    public SqlSessionFactory sessionFactory() throws Exception{
-      SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-      sessionFactory.setDataSource(myDataSource());
-      return (SqlSessionFactory)sessionFactory.getObject();
+     SqlSessionFactoryBean sessionFactory=new SqlSessionFactoryBean();
+     sessionFactory.setDataSource(myDataSource());
+     return (SqlSessionFactory)sessionFactory.getObject();
    }
-
+   
 }
